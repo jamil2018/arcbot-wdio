@@ -30,7 +30,12 @@ export const config: Options.Testrunner = {
   connectionRetryCount: 3,
   services: ["devtools", "vscode"],
   framework: "mocha",
-  reporters: ["spec", ["allure", { outputDir: "allure-results" }], "json"],
+  reporters: [
+    "spec",
+    ["allure", { outputDir: "./src/reports/html/allure-results" }],
+    ["json", { outputDir: "./src/reports/json" }],
+  ],
+  outputDir: "./src/reports/logs",
   mochaOpts: {
     ui: "bdd",
     timeout: 60000,
